@@ -1,0 +1,276 @@
+@use "../helpers/color" as *;
+@use "../helpers/animation" as *;
+@use "../helpers/extend" as*;
+@use "../helpers/mixin" as *;
+
+header {
+    background-color: #fff;
+    .navTopBox,.navMiddelBox{
+        border-bottom: 1px solid hsl(0, 0%, 93%);
+    }
+    .navTopBox{
+        background-color: $w;
+            width: 100%;
+            font-size: 14px;
+            color: $text-2;
+            padding-block: 10px;
+            
+        .navTop{
+            p{
+                opacity: .8;
+            }
+        }
+    }
+    .navMiddel {
+        .brandLogo {
+            
+            height: 75px;
+            @media(max-width:580px){
+                height: 60px;
+            }
+        }
+
+        .hideIcon {
+            transform: translateY(-30px);
+            opacity: 0;
+            transition: $t-s;
+        }
+        .showIcon{
+            transform: translateY(0);
+            opacity: 1;
+            transition: $t-s;
+        }
+
+
+        .NavSearch {
+
+            max-width: 100%;
+            
+            &.normalSearch {
+                width: 250px;
+                position: relative;
+                @media(max-width:991px){
+                    width: 196px;
+                }
+            }
+
+            &.mobileSearch {
+                background-color: $BG;
+                padding-block: 10px;
+                position: absolute;
+                width: 100%;
+                z-index: 99999;
+                top: -40px;
+                right: 0;
+                padding-inline: 15px;
+                transform: scale(.5);
+                transition: $t-l;
+                opacity: 0;
+                box-shadow: 0 13px 1.25rem rgba($color: #6e6e6e, $alpha: .5);
+                .icon-search{
+                    @extend %centerY;
+                }
+                
+
+                &.open {
+                    
+                    transform: scale(1);
+                    opacity: 1;
+                }
+                
+            }
+
+            input {
+                @include input(48px, 100%, rgba($color: #808080, $alpha: .5));
+                color: #545454;
+                font-size: 16px;
+                padding-inline: 30px;
+            }
+
+            .icon-search {
+                color: rgba($color: #777777, $alpha: 1);
+                width: 24px;
+                position: absolute;
+                margin-inline: 5px;
+            }
+        }
+
+        .navTopMenu {
+            li {
+                padding-inline: 5px;
+
+                &.separator {
+                    opacity: .3;
+
+                }
+
+                span {
+                    &.count {
+                        color: $w;
+                        background-color: $hover-1;
+                        width: 20px;
+                        aspect-ratio: 1;
+                        
+                        @media(max-width:767px) {
+                            width: 15px;
+                            aspect-ratio: 1;
+                            font-size: 10px;
+                        }
+                    }
+
+                    &.separator {
+                        opacity: .7;
+                    }
+                }
+            }
+
+            li {
+                color: $text;
+            }
+
+            svg {
+                width: 36px;
+
+                @media(max-width:767px) {
+                    width: 28px;
+                }
+            }
+        }
+    }
+
+    .navBottom {
+        .NormalNavMenu {
+            padding-inline: 30px;
+            // overflow: hidden;
+
+            li {
+                padding-inline: 20px;
+
+                a{
+                    &::before{
+                        @extend %pseudoElX;
+                        background-color: $hover-1;
+                        width: 0%;
+                        height: 4px;
+                        bottom: -13px;
+                    }
+                    &:hover{
+                        &::before{
+                            width: 100%;
+                            
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .ResponsiveMobileMenu {
+            width: 250px;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            @extend %aside;
+            .closeMenu {
+                @extend %closeAside;
+            }
+            .nav-item {
+                padding-inline: 30px;
+                padding-block: 10px;
+
+
+                &:nth-child(3) {
+                    margin-top: 15px;
+                }
+
+                a {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    font-size: 16px;
+
+                    &.show {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+            }
+
+            .sideBarLogo {
+                margin-top: 20px;
+
+                a {
+                    height: 65px;
+
+                }
+            }
+
+           
+
+
+        }
+    }
+
+    .navMiddel svg,
+    .navTopMenu .NavTopLink,
+    .NormalNavMenu .navLink,
+    .ResponsiveMobileMenu .navLink {
+        &:hover {
+            color: $hover;
+        }
+    }
+
+    @media(max-width:767px) {
+        
+        .normalSearch,
+        .Auth,
+        li.separator {
+            display: none;
+        }
+
+        .NormalNavMenu {
+            display: none;
+        }
+        .navBottomBox , .navMiddelBox{
+            
+            border: none;
+        }
+        .navBottomBox{
+            padding: 0;
+        }
+    }
+
+    @media(min-width:768px) {
+
+        .mobileSearch,
+        .NavMobile,
+        .icon-nav-base,
+        .sideBarLogo,
+        .ResponsiveMobileMenu,
+        .closeMenu {
+            display: none;
+
+        }
+    }
+
+    .icon-nav-base {
+        width: 40px;
+
+        span {
+            width: 30px;
+            background-color: $hover;
+
+            &:nth-child(2) {
+                transform: translateX(10px);
+                width: 25px;
+            }
+        }
+
+        &:hover {
+            span:nth-child(2) {
+                transform: translateX(0);
+                width: 30px;
+            }
+        }
+    }
+}

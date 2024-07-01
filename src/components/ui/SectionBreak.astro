@@ -1,0 +1,78 @@
+---
+interface Props {
+  img: {
+    img1: string | any;
+    img2: string | any;
+    img3: string | any;
+    img4?: string | any;
+    img5?: string | any;
+  };
+  alt: string;
+  href: string;
+  titleImg: string;
+  flex?: boolean;
+}
+const { img, alt, href, titleImg, flex } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<section>
+  <div class="container-full">
+    <div class="break d-flex items-center gap-4">
+      {
+        flex ? (
+          <div class="break d-flex items-center gap-4 MobileBreak">
+            <a class="imgBreak MobileBreak" href="#!" title="شاشة lg">
+              <Image
+                src={img.img4}
+                alt={alt}
+                class={`img-cover`}
+                format="webp"
+                quality={100}
+              />
+            </a>
+            <a class="imgBreak MobileBreak" href="#!" title="مصباح كهربائي">
+              <Image
+                src={img.img5}
+                alt={alt}
+                class={`img-cover`}
+                format="webp"
+                quality={100}
+              />
+            </a>
+          </div>
+        ) : (
+          <>
+            <a class="imgBreak" href={href} title={titleImg}>
+              <Image
+                src={img.img1}
+                alt={alt}
+                class={`img-cover`}
+                format="webp"
+                quality={100}
+              />
+            </a>
+            <a class="imgBreak MobileBreak" href={href} title={titleImg}>
+              <Image
+                src={img.img2}
+                alt={alt}
+                class={`img-cover`}
+                format="webp"
+                quality={100}
+              />
+            </a>
+            <a class="imgBreak MobileBreak" href={href} title={titleImg}>
+              <Image
+                src={img.img3}
+                alt={alt}
+                class={`img-cover`}
+                format="webp"
+                quality={100}
+              />
+            </a>
+          </>
+        )
+      }
+    </div>
+  </div>
+</section>

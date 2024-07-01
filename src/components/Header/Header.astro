@@ -1,0 +1,53 @@
+---
+import NavLogo from "./NavLogo.astro";
+import NavSearch from "./NavSearch.astro";
+import NavTopMenu from "./NavTopMenu.astro";
+import NavMenu from "./NavMenu.astro";
+import MobileIcon from "./MobileIcon.astro";
+import Button from "@components/ui/Button.astro";
+import DropMenu from "@components/ui/DropMenu.astro";
+import { LangDropData } from "@data/data";
+import { Icon } from "astro-icon/components";
+---
+
+<header class="relative">
+  <div class="navTopBox">
+    <div class="container">
+      <nav class="navTop d-flex items-center justify-between">
+        <div class="relative">
+          <Button
+            type="button"
+            aria="open user menu"
+            ariaEx={`false`}
+            controll={`LangDrop`}
+            ClassName="dropBtn fs-16 d-flex items-center"
+          >
+          <Icon name={`arrow-down`} />
+            اللغة العربية
+          </Button>
+          <DropMenu data={LangDropData} id="LangDrop" />
+        </div>
+        <p class="fw-700">خصم 50% علي اي منتج في خلال اسبوع</p>
+      </nav>
+    </div>
+  </div>
+  <div class="navMiddelBox py-6">
+    <div class="container">
+      <nav class="d-flex items-center justify-between navMiddel ">
+        <MobileIcon />
+        <NavSearch />
+        <NavLogo />
+        <NavTopMenu />
+      </nav>
+    </div>
+  </div>
+  <div class="navBottomBox py-6">
+    <div class="container">
+      
+      <nav class="navBottom ">
+        <NavMenu />
+      </nav>
+    </div>
+  </div>
+</header>
+<script src="../../scripts/header.ts"></script>

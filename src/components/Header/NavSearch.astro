@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<form action="/" class="NavSearch  normalSearch " role="search" id="navSearchForm">
+  <label for="navSearch">
+    <Icon name={`search`} class={`icon-search `} />
+    
+  </label>
+  <input
+    type="search"
+    aria-label="Search"
+    placeholder="ابحث عن منتجك"
+    name="navSearch"
+    id="navSearch"
+    class="round-4 "
+  />
+</form>

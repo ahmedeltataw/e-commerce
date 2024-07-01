@@ -1,0 +1,26 @@
+---
+import Button from "@components/ui/Button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Button
+  type="button"
+  aria="openMobileSearch "
+  ClassName="mobileIconSearch showIcon"
+  ariaEx={false}
+  controll={`navSearchForm`}
+  id="openMobileSearch"
+>
+  <Icon name={`search`} class={`openIconSearchMobile `} size={18} />
+</Button>
+<Button
+  type="button"
+  aria="closeMobileSearch "
+  ClassName="mobileIconSearch hideIcon"
+  ariaEx={false}
+  controll={`navSearchForm`}
+  id="closeSearchMenu"
+  style="display:none"
+>
+<Icon name={`close`} class={`closeIconSearchMobile `} />
+</Button>

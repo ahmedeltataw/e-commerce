@@ -1,0 +1,34 @@
+---
+import { AstroFont } from "astro-font";
+---
+<AstroFont
+      config={[
+        {
+          name: "Sukar",
+          src: [
+            
+            {
+              style: 'normal',
+              weight: '900',
+              path: './public/fonts/Sukar-black.woff2'
+            },
+            {
+              style: 'normal',
+              weight: '700',
+              path: './public/fonts/Sukar-Bold.woff2'
+            },
+            {
+              style: 'normal',
+              weight: '500',
+              path: './public/fonts/SukarRegular.woff2'
+            },
+            
+          ],
+          preload: false,
+          display: "swap",
+          selector: "body",
+          fallback: "sans-serif",
+        },
+      ]}
+    />
+    

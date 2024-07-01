@@ -1,0 +1,32 @@
+---
+import { Icon } from "astro-icon/components";
+import FormGroup from "@components/ui/FormGroup.astro";
+---
+
+<div class="Newsletter d-flex items-center justify-between">
+  <div class="box d-flex items-center gap-8">
+    <!-- icons -->
+    <div class="box-icons">
+      <Icon name={`sendEmail`} />
+    </div>
+    <div class="box-text">
+      <h5 class="fw-700 fs-24">الاشتراك في النشرة الإخبارية</h5>
+      <p>لن نشارك عنوان بريدك الإلكتروني أبدًا مع طرف ثالث.</p>
+    </div>
+  </div>
+  <div class="box">
+    <form action="#!">
+      <FormGroup
+        type="email"
+        place="ادخل بريدك الالكتروني"
+        isLabel={false}
+        isDisabled={false}
+        name="NewsletterEmail"
+        isButton={true}
+        ButtonTitle=" اشترك الان"
+        ButtonClassName="btnSendEmail "
+        ariaButton="اشترك الان "
+      />
+    </form>
+  </div>
+</div>

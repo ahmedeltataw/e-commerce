@@ -1,0 +1,8 @@
+---
+import { Image } from "astro:assets";
+
+import LogoImg from "@assets/images/logo.png"
+---
+<a href="/" aria-label="website logo" class="brandLogo img-contain">
+    <Image src={LogoImg} alt={`logo e-commerce`} format="webp" quality={70} />
+</a>

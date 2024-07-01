@@ -1,0 +1,66 @@
+@use"../../../helpers/extend" as *;
+@use"../../../helpers/mixin" as *;
+@use"../../../helpers/color" as *;
+
+.proCate {
+    .proCard {
+        @include gridCol(200px, auto);
+        // gap: 10px;
+
+        
+    }
+
+    .dailyOffers {
+        height: 100%;
+
+        .swiper-pagination {
+            text-align: right;
+            margin-right: 15px;
+            left: auto;
+
+            .swiper-pagination-bullet  , span{
+                height: 8px;
+                width: 30px;
+                border-radius: 6px;
+                display: inline-block;
+                background-color: rgba($color: #c0c0c0, $alpha: 1.0);
+                margin-right: 5px;
+                cursor: pointer;
+                &:first-child{
+                    margin-right: 0;
+                }
+            }
+
+            .swiper-pagination-bullet-active {
+                background: $hover-1;
+            }
+        }
+
+        .proImg {
+            height: 480px;
+        }
+    }
+    @media(max-width:768px) {
+        .dailyOffers{
+            .proImg{
+                height: 300px;
+            }
+        }
+        .CardColParent{
+            margin-top: 3vh;
+        }
+        .proCard{
+            .noProduct{
+                margin-top: 6vh;
+                svg{
+                    width: 8em;
+                }
+                p{
+                    font-size: 18px;
+                    padding-top: 1.5vh;
+                }
+            }
+        }
+    }
+
+}

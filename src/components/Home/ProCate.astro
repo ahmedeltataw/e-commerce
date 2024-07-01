@@ -1,0 +1,68 @@
+---
+import Card from "@components/ui/Card.astro";
+import MainHeadingBorder from "@components/ui/MainHeading_border.astro";
+import { CardData, DailyOffers } from "@data/data";
+import type { CardType } from "../../types/types";
+import MySwiper from "@components/ui/MySwiper.astro";
+//swiper-slide
+
+---
+
+<section class="proCate mt-12" data-cate="Electronics">
+  <div class="container-full">
+    <div class="row items-start gap-row-1">
+      <!-- offers -->
+      <div class="col-4-lg col-4-md col-12-sm">
+        <MainHeadingBorder title="العروض اليومية" filter={false} />
+        <aside class="dailyOffers">
+          <MySwiper
+            pagination={true}
+            navigation={false}
+            name="daliysOffersSwiper"
+          >
+            {
+              DailyOffers.map((item: CardType) => (
+                <div class="swiper-slide">
+                  <Card
+                    id={item.id}
+                    title={item.title}
+                    img={item.img}
+                    price={item.price}
+                    sale={item.sale}
+                    badge={item.badge}
+                    badgeNum={item.badgeNum}
+                    newPrice={item.newPrice}
+                    
+                  />
+                </div>
+              ))
+            }
+          </MySwiper>
+        </aside>
+      </div>
+      <!-- product -->
+      <div class="col-8-lg col-8-md col-12-sm CardColParent">
+        <MainHeadingBorder title="الالكترونيات" filter={true} />
+        <div class="d-grid proCard">
+          {
+            CardData.filter(
+              (item: CardType) => item.cate === "الالكترونيات"
+            ).map((item: CardType) => (
+              <Card
+                id={item.id}
+                title={item.title}
+                img={item.img}
+                price={item.price}
+                sale={item.sale}
+                badge={item.badge}
+                badgeNum={item.badgeNum}
+                newPrice={item.newPrice}
+                filter={item.typePro}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

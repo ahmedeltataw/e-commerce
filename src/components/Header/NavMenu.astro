@@ -1,0 +1,44 @@
+---
+import type { LinkType } from "../../types/types";
+import { NavData } from "@data/data";
+import NavLogo from "./NavLogo.astro";
+import Button from "@components/ui/Button.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<ul
+  class="navMenu NormalNavMenu  d-flex items-center justify-center"
+  id="Mobile" 
+>
+  <li class="sideBarLogo mx-auto">
+    <NavLogo />
+  </li>
+  <li>
+    <Button
+      type="button"
+      aria="closeMenu"
+      ariaEx={`false`}
+      controll={`Mobile`}
+      ClassName="closeMenu"
+      id="closeMenu"
+    >
+      <Icon name={`close`} size={20} />
+    </Button>
+  </li>
+  {
+    NavData.map((link: LinkType) => (
+      <li class="nav-item">
+        <a href={link.path} class="navLink fw-700 fs-16 relative">
+          {link.title}
+        </a>
+      </li>
+    ))
+  }
+    <li class="NavMobile nav-item">
+      <a href="/" class="fs-16 fw-700  navLink">تسجيل </a>
+    </li>
+  <li class="NavMobile nav-item">
+    <a href="/" class="fs-16 fw-700  navLink">تسجيل الدخول</a>
+  </li>
+</ul>
+<!-- aria-current="page" -->

@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  des: string;
+}
+const {title , des} = Astro.props
+// base head meat
+import BaseHead from "@components/BaseHead.astro";
+
+// components
+import Header from "@components/Header/Header.astro";
+import Footer from "@components/Footer/Footer.astro";
+import CartShop from "@components/ui/CartShop.astro";
+import SuccessMessage from "@components/ui/SuccessMessage.astro";
+import ErrorMassage from "@components/ui/ErrorMassage.astro";
+---
+
+<!doctype html>
+<html lang="ar">
+  <head>
+    <BaseHead title={title} description={des} />
+  </head>
+  <body >
+    <Header />
+    <main>
+      <CartShop/>
+      <SuccessMessage/>
+      <ErrorMassage/>
+      <slot />
+    </main>
+    <Footer/>
+    <!-- <Footer Client={true} Admin={false} job={false}/> -->
+    <div class="overlay " id="overlayBG"></div>
+    <script src="../scripts/Cart.ts"></script>
+    <script src="../scripts/quickyView.ts"></script>
+  </body>
+</html>

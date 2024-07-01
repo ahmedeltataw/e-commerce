@@ -1,0 +1,37 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  type: "text" | "number" | "password" | "email" | "date" | "time" | "file";
+  title?: string;
+  name?: string;
+  place: string;
+  value?: string;
+  isDisabled:boolean,
+  isLabel:boolean,
+  ClassName?:string,
+  //
+  isButton?:boolean,
+  //
+  ariaButton?:string,
+  ButtonTitle?:string,
+  ButtonClassName?:string,
+}
+const { title, name, type, place, value , isDisabled , isLabel=true ,ClassName , isButton=true , ariaButton , ButtonTitle ,ButtonClassName} = Astro.props;
+---
+
+<div class="formGroup relative mb-7 d-flex">
+ 
+  {isLabel &&  <label for={name} class="">{title}</label>}
+  {isButton && <Button type='submit' aria={ariaButton} ClassName={`round-4 ${ButtonClassName}`} >{ButtonTitle}</Button>}
+  <input
+    type={type}
+    name={name}
+    id={name}
+    class={`round-4 pr-5 pl-5 ${ClassName}`}
+    placeholder={place}
+    value={value}
+    
+    disabled={isDisabled}
+  />
+</div>

@@ -1,0 +1,38 @@
+---
+import MainHeadingBorder from "@components/ui/MainHeading_border.astro";
+import { Image } from "astro:assets";
+//data
+import { CategoryData } from "@data/data";
+import type { CategoryType } from "../../types/types";
+// 
+
+---
+
+<section class="category-1">
+  <div class="container-full">
+    <MainHeadingBorder title="افضل الاقسام " filter={false} />
+    <div class="cate-box d-grid">
+      {
+        CategoryData.map((item: CategoryType) => (
+          <div class="box relative">
+            <figure class="relative round-6 overflow-hidden">
+              <Image
+                src={item.img}
+                alt={item.title}
+                format="webp"
+                quality={50}
+                class={`round-6`}
+                loading={`lazy`}
+              />
+              <figcaption class="absolute fw-900 fs-28 text-center">
+                {item.title}
+              </figcaption>
+            </figure>
+            <a href={item.path} title={item.title} class="absolute top-0 left-0" />
+          </div>
+        ))
+      }
+    </div>
+    
+  </div>
+</section>

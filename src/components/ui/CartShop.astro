@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "./Button.astro";
+
+---
+
+<aside class="" id="CartShop" style="display: none;">
+  <div class="cartContainer relative d-grid">
+    <div class="asde-top">
+      <Button
+        type="button"
+        aria="closeCart"
+        ariaEx={`false`}
+        controll={`CartShop`}
+        ClassName="closeCart"
+        id="closeCart"
+      >
+        <Icon name={`close`} size={20} />
+      </Button>
+      <h2 class="fs-24 text-center py-8 fw-900">سلتلك</h2>
+    </div>
+
+    <div class="absolute massageEmpty text-center">
+      <Icon name={`emptyCart`} />
+      <p class=" fw-700 fs-24 pt-5 pl-6">السلة فارغة</p>
+    </div>
+    <div class="aside-middel AllCarts"></div>
+
+    <!-- Actions -->
+    <div class="actions d-grid relative">
+      <Button
+        type="button"
+        ClassName="btn-run round-4 relative"
+        aria="Cart page"
+      >
+        <a href="#!" class="relative fw-700">السلة</a>
+      </Button>
+      <Button
+        type="button"
+        ClassName="btn-runBorder round-4 relative"
+        aria="checkOut page"
+      >
+        <a href="#!" class="relative fw-700">ادفع الان</a>
+      </Button>
+    </div>
+  </div>
+</aside>
+

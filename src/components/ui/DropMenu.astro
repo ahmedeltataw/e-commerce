@@ -1,0 +1,22 @@
+---
+interface Props {
+  data: DropDataType[];
+  id: string;
+}
+const { data, id } = Astro.props;
+import { Icon } from "astro-icon/components";
+import type { DropDataType } from "../../types/types";
+---
+
+<ul class="dropdownMenu" id={id} style="display: none;" data-effect="250">
+  {
+    data.map((item: DropDataType) => (
+      <li class="dropItem">
+        <a href={item.path} class="fs-16 fw-500 d-flex items-center" aria-label={item.title}>
+          <Icon name={item.icon}/>
+          {item.title}
+        </a>
+      </li>
+    ))
+  }
+</ul>

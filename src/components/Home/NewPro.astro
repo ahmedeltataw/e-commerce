@@ -1,0 +1,31 @@
+---
+import Card from "@components/ui/Card.astro";
+import MainHeadingBorder from "@components/ui/MainHeading_border.astro";
+import { CardData } from "@data/data";
+import type { CardType } from "../../types/types";
+
+---
+
+<section class="newPro">
+  <div class="container-full">
+    <MainHeadingBorder title="المنتجات الرائجة" filter={true} />
+    <div class="d-grid proCard">
+      {
+        CardData.slice(0 , 10).map((item: CardType  ) => (
+          <Card
+            id={item.id}
+            title={item.title}
+            img={item.img}
+            price={item.price}
+            sale={item.sale}
+            badge={item.badge}
+            badgeNum={item.badgeNum}
+            newPrice={item.newPrice}
+            filter={item.typePro}
+          />
+        ))
+      }
+    
+    </div>
+  </div>
+</section>

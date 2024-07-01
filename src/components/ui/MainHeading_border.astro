@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  filter:boolean;
+}
+const { title ,filter} = Astro.props;
+---
+
+<div class="mainHeading  relative" >
+  <h2 class="fs-24 fw-700 relative ">
+    {title}
+  </h2>
+  {filter && (
+    <ul class="filter d-flex items-center gap-10 ml-5 ">
+    <li class=" fw-700 relative  active " data-filter="All">  الكل </li>
+    <li class=" fw-700 relative   " data-filter="buyMore"> الاكثر بيعا </li>
+    <li class=" fw-700  relative  " data-filter="newArrivals">  وصل حديثا </li>
+    <li class=" fw-700  relative  " data-filter="topRated">   الاعلي تقيما </li>
+  </ul>
+  )}
+</div>

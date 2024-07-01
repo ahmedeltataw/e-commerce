@@ -1,0 +1,25 @@
+---
+import {ServiceData} from "@data/data"
+import type {ServiceType} from "../../types/types"
+import { Icon } from "astro-icon/components"
+---
+<section class="service section-1">
+    <div class="container-full">
+        <div class="d-grid service-box">
+            {
+                ServiceData.map((item:ServiceType)=>(
+                    <div class="box d-flex items-center round-6 relative">
+                        <div class="icon-ser mb-6">
+                            <Icon name={item.icon}/>
+                        </div>
+                        <div class="box-ser">
+                            <p class="title fw-700 fs-18 pb-2">{item.title}</p>
+                            <p class="des fw-500">{item.des}</p>
+                        </div>
+                        <a href={item.path} title={item.title} class="absolute top-0 left-0"></a>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,135 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+
+.Model {
+    position: fixed;
+    @extend %centerPosition;
+    background-color: $BG2;
+    width: 1000px;
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: scroll;
+    z-index: 999999;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: $t-l;
+    
+
+    &.open {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        
+    }
+
+    .ModelDetails {
+
+        .ShowModel {
+            grid-template-columns: 1fr 1.1fr;
+            padding: 25px 15px;
+            gap: 25px;
+
+            @media(max-width:767px) {
+                grid-template-columns: auto;
+                .mainImg{
+                
+                    img{
+                        height: 300px;
+                        object-fit: contain;
+                        
+                    }
+                }
+            }
+        }
+
+        .imgContainer {
+            img{
+                transition: $t-s;
+                object-fit: contain;
+            }
+            .mainImg{
+                
+                img{
+                    height: 400px;
+                    @media(max-width:580px){
+                        height: 100%;
+                    }
+                    
+                }
+            }
+            .gallery {
+                margin-top: 10px;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+
+                .subImg {
+
+                    border-radius: 3px;
+                    height: 68px;
+                    img {
+                        border-radius: 3px;
+                        opacity: .8;
+                        // object-fit: contain;
+                        &.active , &:hover {
+                            opacity: 1;
+                            border: 1px solid $hover;
+                        }
+                    }
+
+                    
+                }
+            }
+        }
+
+        .proDetails {
+            .viewRate {
+                gap: 5px;
+
+                .rateCount {
+                    opacity: .8;
+                    color: $text-2;
+                }
+
+                svg {
+                    color: #f6a355;
+                    width: 24px;
+                }
+            }
+
+            .price {
+                color: $hover;
+                del{
+                    color: $text-2;
+                    opacity: .5;
+                    padding-left: 15px;
+                }
+            }
+
+            dl {
+                color: $text-2;
+
+                .proInfo {
+                    min-width: 220px;
+                    float: right;
+                    opacity: .7;
+                    padding-bottom: 5px;
+                }
+
+                .proValue {
+                    font-weight: 500;
+                    padding-bottom: 5px;
+                }
+            }
+
+
+        }
+
+    }
+
+    .closeQuickyView {
+        @extend %closeAside;
+        z-index: 999999;
+
+    }
+}

@@ -1,0 +1,36 @@
+
+@use "./helpers/color" as *;
+@use "./helpers/mixin" as *;
+
+body {
+    background-color: $w;
+    color: $text;
+    // height: 5000px;
+    
+    
+}
+
+
+html[lang="en"]{
+    direction: ltr;
+    .ResponsiveMobileMenu{
+        left: 0;
+    }
+}
+html[lang="ar"]{
+    direction: rtl;
+    .ResponsiveMobileMenu{
+        right: 0;
+    }
+}
+
+::-webkit-scrollbar{
+    width: 6px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: $hover;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+    background-color: #eaeaea;
+}

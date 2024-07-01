@@ -1,0 +1,27 @@
+---
+import MySwiper from "@components/ui/MySwiper.astro";
+import { BrandData } from "@data/data";
+import type { CategoryType } from "../../types/types";
+import { Image } from "astro:assets";
+---
+
+<section class="brand">
+  <div class="container-full">
+    <MySwiper pagination={false} navigation={true} name="BrandSwiper">
+      {
+        BrandData.map((item: CategoryType) => (
+          <div class="swiper-slide">
+            <a href={item.path} title={item.title}>
+              <Image
+                src={item.img}
+                alt={item.title}
+                quality={70}
+                format="webp"
+              />
+            </a>
+          </div>
+        ))
+      }
+    </MySwiper>
+  </div>
+</section>

@@ -1,0 +1,107 @@
+@use "../../../helpers/color" as *;
+@use "../../../helpers/extend" as *;
+
+.hero-1 {
+    height: 495px;
+    border-radius: 16px;
+
+    img {
+        height: 495px;
+        border-radius: 16px;
+
+    }
+
+    .swiper-slide {
+        opacity: 0;
+        filter: blur(10px);
+        transition: $t-l;
+        .swiper-box {
+            position: absolute;
+            right: 10%;
+            @extend %centerY;
+            // overflow: hidden;
+
+            .heroOffer {
+                background-color: $hover-1;
+                color: $w;
+
+            }
+
+            .btn-run,
+            .heroTitle,
+            .heroOffer,
+            .heroDes {
+                transform: translateY(-50px);
+                opacity: 0;
+                filter: blur(3px);
+                transition: $t-l;
+                transition-delay: 200ms;
+            }
+        }
+    }
+
+    .swiper-slide-active {
+        opacity: 1;
+        filter: blur(0);
+
+        .swiper-box {
+
+            .btn-run,
+            .heroTitle,
+            .heroOffer,
+            .heroDes {
+                transform: translateY(0);
+                opacity: 1;
+                filter: blur(0);
+
+            }
+
+            .btn-run {
+                transition-delay: 150ms;
+            }
+        }
+
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        background: transparent;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid $hover;
+        opacity: 0;
+        transition: $t-l;
+        &::after {
+            font-size: 30px;
+            color: $hover;
+            transition: $t-s;
+        }
+
+        &:hover {
+            opacity: 1;
+            background-color: $hover;
+
+            &::after {
+                color: $w;
+            }
+        }
+    }
+
+    .swiper-button-prev {
+        transform: translateX(100px);
+    }
+
+    .swiper-button-next {
+        transform: translateX(-100px);
+    }
+
+    &:hover {
+
+        .swiper-button-next,
+         .swiper-button-prev {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+}

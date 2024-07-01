@@ -1,0 +1,135 @@
+@use "../helpers/color" as *;
+@use "../helpers/animation" as *;
+@use "../helpers/extend" as*;
+@use "../helpers/mixin" as *;
+
+footer {
+    min-height: 75dvh;
+    padding-top: 6vh;
+    margin-top: 5vh;
+    background-color: #0d1721;
+    width: 100%;
+
+    .footerLayout {
+        @extend %col-5;
+    }
+
+    .Footer-meta {
+
+        h5,
+        a {
+            color: $w;
+        }
+
+        h5 {
+            display: inline-block;
+
+            &::before {
+                @extend %pseudoElX;
+                width: 50%;
+                height: 2px;
+                background-color: $hover-1;
+                bottom: 20px;
+                right: 0;
+            }
+        }
+
+        a {
+            opacity: .7;
+
+            &:hover {
+                color: $hover-1;
+                opacity: 1;
+            }
+        }
+    }
+
+    .Newsletter {
+        .box {
+            .box-text {
+                color: $w;
+
+                p {
+                    opacity: .7;
+                }
+            }
+
+            .box-icons {
+                svg {
+                    width: 48px;
+                    color: $w;
+                }
+            }
+
+            form {
+
+                .formGroup {
+                    width: 500px;
+                    height: 60px;
+                    max-width: 100%;
+                    
+                }
+
+                input {
+                    @include input(100%, 100%, $w);
+                    background-color: transparent;
+
+                    &::placeholder {
+                        color: $w;
+
+                        opacity: .7;
+                    }
+
+                    // max-width: 100%;
+
+                }
+
+                .btnSendEmail {
+                    position: absolute;
+                    left: -1px;
+                    @extend %centerY;
+                    background-color: $hover;
+                    color: $w;
+                    height: 61px;
+                    padding: 0 35px;
+                    border: 1px solid $hover;
+                    transition: $t-s;
+
+                    &:hover {
+                        background-color: #0d1721;
+                        border: 1px solid $w;
+                        height: 60px;
+
+                    }
+                }
+            }
+        }
+
+        @media(max-width:768px) {
+            flex-direction: column;
+                    align-items: stretch;
+                    
+            gap: 15px;
+
+            
+        }
+    }
+
+    hr {
+        opacity: .2;
+    }
+
+    .copyright {
+        flex-direction: column;
+
+        .paymentImg {
+            max-width: 335px;
+        }
+
+        p,
+        a {
+            color: $w;
+            opacity: .7;
+        }
+    }
+}

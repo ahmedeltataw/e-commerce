@@ -1,0 +1,30 @@
+---
+interface Props {
+  pagination: boolean;
+  navigation: boolean;
+  name?:string
+}
+const { pagination, navigation ,name} = Astro.props;
+---
+
+<!-- Slider main container -->
+<div class={`swiper ${name}`}>
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    
+    <slot/>
+  </div>
+  <!-- If we need pagination -->
+  {pagination && <div class="swiper-pagination" />}
+
+  <!-- If we need navigation buttons -->
+  {
+    navigation && (
+      <>
+        <div class="swiper-button-prev" />
+        <div class="swiper-button-next" />
+      </>
+    )
+  }
+</div>

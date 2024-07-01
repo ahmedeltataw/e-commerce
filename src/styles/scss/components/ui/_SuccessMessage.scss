@@ -1,0 +1,25 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+.SuccessMessage , .ErrorMessage{
+    top: 30px;
+    z-index: 999999;
+    height: 80px;
+    width: 300px;
+    color: $w;
+    opacity: 0;
+    transform: translateX(350px) rotate(15deg);
+    transition: $t-l;
+    max-width: 100%;
+    &.open{
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+    }
+}
+.ErrorMessage{
+      background-color: rgb(169, 50, 50);
+}
+.SuccessMessage{
+    background-color: rgb(50, 169, 50);
+}

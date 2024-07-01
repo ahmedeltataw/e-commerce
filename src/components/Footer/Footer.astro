@@ -1,0 +1,23 @@
+---
+import {FooterCate_1Data , FooterCate_2Data , FooterCate_3Data , FooterCate_4Data} from "@data/data";
+import UlFooter from "./UlFooter.astro";
+import Newsletter from "./Newsletter.astro";
+import Copyright from "./Copyright.astro";
+---
+<footer>
+   <div class="container-full">
+    <div class="d-grid footerLayout">
+        <UlFooter MainTitle="الاقسام الرائجة" data={FooterCate_1Data} />
+        <UlFooter MainTitle="منتجاتنا" data={FooterCate_2Data} />
+        <UlFooter MainTitle="اعرف عنا" data={FooterCate_3Data} />
+        <UlFooter MainTitle="خدمتنا" data={FooterCate_4Data} />
+        <UlFooter MainTitle="خدمتنا" data={FooterCate_4Data} />
+    </div>
+    <hr class="my-10"/>
+    <!-- Newsletter -->
+    <Newsletter/>
+    <hr class="my-10"/>
+    <!-- Copyright -->
+     <Copyright/>
+   </div>
+</footer>

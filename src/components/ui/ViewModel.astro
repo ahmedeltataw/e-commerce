@@ -1,0 +1,24 @@
+---
+import Button from "./Button.astro";
+import { Icon } from "astro-icon/components";
+
+---
+
+<section class="Model quickyView" id="QuickyView" style="display:none">
+  <div class="ModelDetails relative" >
+    <Button
+    type="button"
+    aria="CloseViewModel"
+    ariaEx={`false`}
+    controll={`quickyView`}
+    ClassName="closeQuickyView"
+    id="CloseViewModel"
+  >
+    <Icon name={`close`} size={20} />
+  </Button>
+    <!--All  img -->
+    <div class="allModel">
+   
+    </div>
+  </div>
+</section>

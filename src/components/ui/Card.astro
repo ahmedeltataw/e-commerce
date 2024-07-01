@@ -1,0 +1,77 @@
+---
+import { Icon } from "astro-icon/components";
+import Rate from "./Rate.astro";
+// import img from "@assets/images/products/product-4.jpg";
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+
+interface Props {
+  title: string;
+  img: any | string;
+  price: string;
+  sale?: boolean | string;
+  badge?: boolean | string;
+  badgeNum?: string | number;
+  newPrice?: string | number;
+  id: string ;
+  filter?: string ,
+}
+const { title, img, price, sale, badge, badgeNum, newPrice, id ,filter} = Astro.props;
+
+---
+
+<div class="card text-center round-6 relative overflow-hidden" data-id={id} data-filter={filter}>
+  {sale && <p class="sale fw-700 text-center fs-14 absolute top-5">تخفيض</p>}
+  {
+    badge && (
+      <p class="badge fw-700 absolute px-5 py-2 round-6 top-8 left-8">
+        {badgeNum}%
+      </p>
+    )
+  }
+  <div class="proImg" data-img={img.src}>
+    <Image src={img} alt={title} format="webp" quality={70} class={`img-contain`}  />
+  </div>
+  <h3 class="proTitle fs-18 fw-900" data-title={title}>{title}</h3>
+
+  <Rate />
+
+  {
+    badge ? (
+      <p class="proPrice fw-900 fs-20" >
+        <del class=" ">
+          {price}<small class="fs-18">ر.س</small>
+        </del>
+        {newPrice}
+        <small class="fs-18">ر.س</small>
+      </p>
+    ) : (
+      <p class="proPrice fw-900 fs-20" >
+        {price}
+        <small class="fs-18">ر.س</small>
+      </p>
+    )
+  }
+  <a href="#!" class="absolute top-0 left-0 linkDetalis " title={title}
+  ></a>
+  <div class="CardIcons absolute top-7 right-7 d-flex items-center">
+    <Button ClassName="cart addCart iconBox relative  " type="button" aria="add to cart"  ariaEx={`false`} controll={`CartShop`} >
+        <div class="px-5 py-3 round-4 icons">
+            <Icon name={`cart2`} size={18}/>
+        </div>
+        <span class="absolute top-0 fw-700 fs-14 px-5 d-flex items-center justify-center">اضف للسلة</span>
+    </Button>
+    <Button ClassName="heart iconBox relative  " type="button" aria="add to heart">
+        <div class="px-5 py-3 round-4 icons">
+            <Icon name={`heart`} size={18}/>
+        </div>
+        <span class="absolute top-0 fw-700 fs-14 px-5 d-flex items-center justify-center">اضف للمفضلة</span>
+    </Button>
+    <Button ClassName="quickyViews  iconBox relative  " type="button" aria="quicky view" ariaEx={`false`} controll={`quickyView`}>
+        <div class="px-5 py-3 round-4 icons">
+            <Icon name={`search`} size={18}/>
+        </div>
+        <span class="absolute top-0 fw-700 fs-14 px-5 d-flex items-center justify-center"> نظرة سريعة</span>
+    </Button>
+  </div>
+</div>

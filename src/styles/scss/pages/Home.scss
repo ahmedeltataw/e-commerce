@@ -1,0 +1,35 @@
+@use "../helpers/color" as *;
+@use"../components/ui/swiper";
+@use "../components/sections/Home/hero";
+@use "../components/sections/Home/services";
+@use "../components/sections/Home/Category";
+@use "../components/sections/Home/proSetion";
+@use "../components/sections/Home/proCate";
+@use "../components/sections/Home/Brand";
+@use "../components/sections/Home/blog";
+//
+.proCard{
+    &:has(.noProduct) {
+        grid-template-columns: 1fr;
+    }
+
+    .noProduct {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 13vh;
+
+        svg {
+            width: 14em;
+        }
+
+        p {
+            font-size: 24px;
+            padding-top: 3vh;
+            font-weight: 700;
+            opacity: .7;
+            color: $text-2;
+        }
+    }
+}

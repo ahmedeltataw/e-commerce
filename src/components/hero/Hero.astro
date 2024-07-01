@@ -1,0 +1,48 @@
+---
+import MySwiper from "@components/ui/MySwiper.astro";
+//img
+import { Image } from "astro:assets";
+//components
+import Button from "@components/ui/Button.astro";
+//data
+import { HeroData } from "../../data/data";
+import type { HeroDataType } from "../../types/types";
+---
+
+<section class="hero-1">
+  <div class="container-full">
+    <MySwiper pagination={false} navigation={true} name="heroSwiper">
+      {
+        HeroData.map((item: HeroDataType, index: number) => (
+          <div class="swiper-slide relative">
+            <Image
+              src={item.img}
+              alt={item.title}
+              quality={70}
+              format="webp"
+              class={`img-cover`}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              
+            />
+            <div class="swiper-box">
+              <p class="heroTitle fs-r-30 fw-700 pb-5">{item.title}</p>
+              <h1 class="heroOffer py-2 px-6 round-6 fs-r-30 mb-6">
+                {item.offer}
+              </h1>
+              <p class="heroDes fs-24 fw-700 mb-8">{item.des}</p>
+              <Button
+                type="button"
+                aria="shop now"
+                ClassName="btn-run round-6 relative">
+                <a href="#" class="py-5 px-12 fs-18 fw-700 relative">
+                  تسوق الان
+                </a>
+              </Button>
+            </div>
+          </div>
+        ))
+      }
+    </MySwiper>
+  </div>
+</section>

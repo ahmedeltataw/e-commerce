@@ -1,0 +1,33 @@
+---
+interface Props {
+  linkPage: string;
+  defPage?: string;
+  path?: string;
+}
+const { linkPage, defPage, path } = Astro.props;
+import breackjumb from "@assets/images/breackjumb.jpg"
+import { Image } from "astro:assets";
+---
+
+<section
+  class="breadcrumb d-flex items-center justify-center relative overflow-hidden"
+>
+  <div class="imgContainer absolute ">
+    <Image src={breackjumb} alt={`breackjumb image`} quality={50} format="webp" class={`img-cover`}/>
+  </div>
+  <div class="container ">
+    <ul class="d-flex items-center justify-center relative">
+      <li class="linkPage">{linkPage}</li>
+      <li class="separator mx-4"> | </li>
+      <li class="defPage ">
+        <a href={path} class="">
+          {defPage}
+        </a>
+      </li>
+    </ul>
+    <h1 class="title capitalize  text-center fs-r-48 fw-900  relative">
+      {linkPage}
+      
+    </h1>
+  </div>
+</section>

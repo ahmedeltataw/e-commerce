@@ -1,0 +1,22 @@
+---
+//layout
+import Layout from "src/layouts/Layout.astro";
+//swiper
+import 'swiper/css/bundle';
+//style
+import "@styles/scss/pages/Home.scss"
+
+//compontents
+import Category from "@components/Home/Category.astro";
+import NewPro from "@components/Home/NewPro.astro";
+---
+
+<Layout
+  title="Ryn E-commerce |  من نحن"
+  des=""
+>
+  
+  <Category/>
+  <NewPro/>
+</Layout>
+<script src="../scripts/home.ts"></script>

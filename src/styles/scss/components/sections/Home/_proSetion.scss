@@ -1,0 +1,12 @@
+@use"../../../helpers/extend" as *;
+@use"../../../helpers/color" as *;
+
+.newPro , [data-cate="Accessories"]{
+    .proCard {
+        @extend %col-5;
+        // gap: 15px;
+    }
+
+    
+}
+

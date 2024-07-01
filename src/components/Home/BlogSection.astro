@@ -1,0 +1,48 @@
+---
+import MainHeadingBorder from "@components/ui/MainHeading_border.astro";
+import { BlogData } from "@data/data";
+import type { BlogType } from "../../types/types";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+---
+
+<section class="Blog">
+  <div class="container-full">
+    <MainHeadingBorder title="احدث المقالات" filter={false} />
+    <div class="d-grid BlogContainer">
+      {
+        BlogData.map((blog: BlogType) => (
+          <article class="BlogBox">
+            <figure class="relative round-6">
+              <Image
+                src={blog.img}
+                alt={blog.title}
+                quality={70}
+                format="webp"
+                class={`round-6`}
+              />
+              <a href={blog.path} title={blog.title} class="absolute top-0 left-0"></a>
+            </figure>
+            <div class="blogMeta d-flex items-center justify-between px-3  py-4 ">
+                <p class="author d-flex items-center fs-14 gap-2 fw-700">
+                <Icon name={`user`} />
+                {blog.name}
+
+              </p>
+              <p class="dateBlog d-flex items-center fs-14 gap-2 fw-700">
+                <Icon name={`Time`} />
+                <span>{blog.date}</span>
+
+              </p>
+              
+            </div>
+            <h4 class="px-5 fs-18 fw-700 ">
+                <a href="">{blog.title}</a>
+            </h4>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

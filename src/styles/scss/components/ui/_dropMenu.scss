@@ -1,0 +1,77 @@
+@use "../../helpers/color" as *;
+.dropBtn{
+    color: $text-2;
+    opacity: .8;
+    svg{
+        width: 20px;
+        padding-inline: 2px;
+        color: $text;
+        transition: $t-s;
+        transform: rotate(0);
+        &.open{
+            transform: rotate(180deg);
+        }
+    }
+    &:hover{
+        opacity: 1;
+    }
+}
+.dropdownMenu{
+    position: absolute;
+    background: $BG;
+    padding-inline: 5px;
+    top: 30px;
+    min-width: 130px;
+    height: auto;
+    left: -35px;
+    font-size: 16px;
+    border-radius: 6px;
+    box-shadow: 0 11px 1.25rem rgba($color: #6e6e6e, $alpha: .5);
+    overflow: hidden;
+    transition: 200ms linear;
+    z-index: 99999;
+    &.open{
+        display: inline-block;
+    }
+    // &::before{
+    //     content: "";
+    // position: absolute;
+    // border: 12px solid transparent;
+    // width: 0;
+    // left: 35%;
+    // top: -24px;
+    // border-bottom-color: $BG;
+
+    // }
+    li{
+        padding-block: 8px;
+        &:nth-child(1){
+            padding-top: 15px;
+        }
+        &:last-child{
+            padding-bottom: 15px;
+        }
+        a{
+            position: relative;
+            svg{
+                width: 18px;
+                // color: $hover;
+            }
+            &:hover{
+                color: $hover;
+                svg{
+                    color: $hover;
+                    animation: scale 300ms ease-in-out forwards ; 
+                }
+            }
+        }
+    }
+}
+@keyframes scale{
+    0%{
+        transform: scale(.5);
+    };
+    100%{
+        transform: scale(1);
+    }
+}

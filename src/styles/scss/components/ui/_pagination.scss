@@ -1,0 +1,34 @@
+@use "../../helpers/color" as *;
+@use "../../helpers/animation" as *;
+@use "../../helpers/extend" as*;
+@use "../../helpers/mixin" as *;
+
+.pagination {
+
+    width: 180px;
+    max-width: 100%;
+
+    ul {
+
+
+
+        // gap: 5px;
+        li {
+
+            a {
+                padding: 5px 6px;
+                background-color: $BG;
+                border-radius: 6px;
+                border: 1px solid $hover;
+                color: $text;
+                transition: $t-s;
+                &:hover,&.active{
+                    background-color: $hover;
+                    color: $w;  
+                }
+
+            }
+
+        }
+    }
+}

@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon/components";
+//components
+import MobileIconSearch from "./MobileIconSearch.astro";
+import Button from "@components/ui/Button.astro";
+---
+
+<ul class="navTopMenu d-flex items-center">
+  <li class="pt-3">
+    <Button type="button" ClassName="relative " aria="cart" ariaEx={`false`} controll={`CartShop`} id="openCart">
+      <Icon name={`cart2`} class={``} />
+      <span
+        class="count absolute top--1 fw-400 fs-12 round-cricle text-center right--2 d-flex items-center justify-center"
+        >0</span
+      >
+    </Button>
+  </li>
+  <li class="pt-3">
+    <a href="/" class="relative" aria-label="wish list">
+      <Icon name={`heart`} class={``} />
+      <span
+        class="count absolute top--1 fw-400 fs-12 round-cricle text-center right--2"
+        >0</span
+      >
+    </a>
+  </li>
+  <li class="pt-3 NavMobile overflow-hidden">
+    <MobileIconSearch />
+  </li>
+
+  <li class="separator fs-28 fw-400">|</li>
+  <li class="Auth">
+    <a href="/" class="fs-18 fw-700 NavTopLink">تسجيل الدخول</a>
+    <span class="fs-14 fw-500 separator">او</span>
+    <a href="/" class="fs-18 fw-700 NavTopLink">تسجيل</a>
+  </li>
+</ul>
