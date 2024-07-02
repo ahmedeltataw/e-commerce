@@ -24,7 +24,7 @@
         li{
             
             color: $text-2;
-            opacity: .6;
+            opacity: .8;
             cursor: pointer;
             &::before{
                 @extend %pseudoElX ;

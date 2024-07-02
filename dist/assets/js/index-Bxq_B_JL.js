@@ -1,6 +1,6 @@
 import { c as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, d as renderSlot, a as renderComponent, e as createAstro, F as Fragment } from './astro/server-DrLcVlYe.js';
 import 'kleur/colors';
-import { H as HeroData, c as $$Image, d as $$Button, S as ServiceData, e as $$Icon, C as CardData, f as $$Card, g as $$MainHeadingBorder, D as DailyOffers, B as BrandData, h as BlogData, $ as $$Category, a as $$NewPro, b as $$Layout } from './NewPro-B5L7Ucbf.js';
+import { H as HeroData, c as $$Image, d as $$Button, S as ServiceData, e as $$Icon, C as CardData, f as $$Card, g as $$MainHeadingBorder, D as DailyOffers, B as BrandData, h as BlogData, $ as $$Category, a as $$NewPro, b as $$Layout } from './NewPro-MdJ4lZGA.js';
 /* empty css                        */
 import '@astrojs/internal-helpers/path';
 import './astro/assets-service-H6psT1Eg.js';

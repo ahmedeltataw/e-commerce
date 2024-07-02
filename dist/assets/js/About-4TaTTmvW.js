@@ -1,6 +1,6 @@
 import { c as createComponent, r as renderTemplate, a as renderComponent } from './astro/server-DrLcVlYe.js';
 import 'kleur/colors';
-import { $ as $$Category, a as $$NewPro, b as $$Layout } from './NewPro-B5L7Ucbf.js';
+import { $ as $$Category, a as $$NewPro, b as $$Layout } from './NewPro-MdJ4lZGA.js';
 /* empty css                        */
 
 const $$About = createComponent(($$result, $$props, $$slots) => {
