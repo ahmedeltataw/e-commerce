@@ -13,8 +13,10 @@
 
     .swiper-slide {
         opacity: 0;
-        filter: blur(10px);
+        // filter: blur(10px);
+        transform: scale(.8);
         transition: $t-l;
+
         .swiper-box {
             position: absolute;
             right: 10%;
@@ -33,16 +35,17 @@
             .heroDes {
                 transform: translateY(-50px);
                 opacity: 0;
-                filter: blur(3px);
+                // filter: blur(3px);
                 transition: $t-l;
                 transition-delay: 200ms;
             }
+            
         }
     }
 
     .swiper-slide-active {
         opacity: 1;
-        filter: blur(0);
+        transform: scale(1);
 
         .swiper-box {
 
@@ -52,7 +55,7 @@
             .heroDes {
                 transform: translateY(0);
                 opacity: 1;
-                filter: blur(0);
+                // filter: blur(0);
 
             }
 
@@ -72,6 +75,7 @@
         border: 2px solid $hover;
         opacity: 0;
         transition: $t-l;
+
         &::after {
             font-size: 30px;
             color: $hover;
@@ -86,22 +90,47 @@
                 color: $w;
             }
         }
+
+        @media(max-width:580px) {
+            width: 40px;
+            height: 40px;
+            top: 85%;
+
+            &::after {
+                font-size: 20px;
+
+            }
+
+            
+        }
     }
 
     .swiper-button-prev {
         transform: translateX(100px);
+        @media(max-width:580px) {
+              
+              transform: translateY(-100px);
+        }
     }
 
     .swiper-button-next {
         transform: translateX(-100px);
+        @media(max-width:580px) {
+              right: 60px;
+              transform: translateY(100px);
+        }
     }
 
     &:hover {
-
+        
         .swiper-button-next,
-         .swiper-button-prev {
+        .swiper-button-prev {
             transform: translateX(0);
+            
             opacity: 1;
+            @media(max-width:580px){
+            transform: translateY(0);
+            }
         }
     }
 }

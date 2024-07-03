@@ -15,13 +15,13 @@ import type { CategoryType } from "../../types/types";
       {
         CategoryData.map((item: CategoryType) => (
           <div class="box relative">
-            <figure class="relative round-6 overflow-hidden">
+            <figure class="relative  overflow-hidden">
               <Image
                 src={item.img}
                 alt={item.title}
                 format="webp"
                 quality={40}
-                class={`round-6`}
+                
                 loading={`lazy`}
               />
               <figcaption class="absolute fw-900 fs-28 text-center">

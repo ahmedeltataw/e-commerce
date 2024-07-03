@@ -5,7 +5,7 @@
 .proCate {
     .proCard {
         @include gridCol(200px, auto);
-        // gap: 10px;
+        gap: 10px;
 
         
     }
